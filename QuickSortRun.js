@@ -2,25 +2,25 @@ function quicksort(array, left, right) {
     left = left || 0;
     right = right || array.length - 1;
 
-    var tmp = sort(array, left, right);
+    var pivot = sort(array, left, right);
 
-    if (left < tmp - 1) {
-        quicksort(array, left, tmp - 1);
+    if (left < pivot - 1) {
+        quicksort(array, left, pivot - 1);
     }
-    if (right > tmp) {
-        quicksort(array, tmp, right);
+    if (right > pivot) {
+        quicksort(array, pivot, right);
     }
     return array;
 }
 
 function sort(array, left, right) {
-    var tmp = Math.floor((left + right) / 2);
+    var pivot = Math.floor((left + right) / 2);
 
     while (left <= right) {
-        while (array[left] < array[tmp]) {
+        while (array[left] < array[pivot]) {
             left++;
         }
-        while (array[right] > array[tmp]) {
+        while (array[right] > array[pivot]) {
             right--;
         }
         if (left <= right) {
